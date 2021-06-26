@@ -2,13 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage ('Checkout Codebase') {
-            steps {
-            cleanWs()
-            checkout scm: [$class: 'GitSCM', branches: [[name: '*/master']]
-            }
-        }
-
         stage('Build') {
             steps {
                  withMaven(maven : 'maven_3_8_1') {
