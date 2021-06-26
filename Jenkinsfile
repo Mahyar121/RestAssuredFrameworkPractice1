@@ -5,7 +5,7 @@ pipeline {
         stage ('Checkout Codebase') {
             steps {
             cleanWs()
-            checkout scm: [$class: 'GitSCM', branches: [[name: '*/master']]]
+            checkout scm: [$class: 'GitSCM', branches: [[name: '*/master']]
             }
         }
 
