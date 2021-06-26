@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Compile stage') {
             steps {
                  withMaven(maven : 'maven_3_8_1') {
                     sh '${MAVEN_HOME}/bin/mvn clean compile'
