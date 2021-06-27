@@ -7,16 +7,18 @@ pipeline {
         }
 
         stage('Compile stage') {
+        def mvnHome = tool name: 'maven_3_8_1', type: 'maven'
             steps {
-            def mvnHome = tool name: 'maven_3_8_1', type: 'maven'
+
                     sh "${mvnHome}/bin/mvn package"
 
             }
         }
 
         stage ('Testing Stage') {
+        def mvnHome = tool name: 'maven_3_8_1', type: 'maven'
             steps {
-                def mvnHome = tool name: 'maven_3_8_1', type: 'maven'
+
                     sh '${mvnHome}/bin/mvn test -DBASE_URI=https://api.spotify.com -DACCOUNT_BASE_URI=https://accounts.spotify.com'
             }
         }
